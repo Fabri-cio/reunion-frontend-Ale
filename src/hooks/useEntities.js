@@ -1,4 +1,5 @@
 import { correspondenciaAPI, correspondenciaEntranteAPI } from "../api/correspondencia.api";
+import { RegistroApi } from "../api/usuario.api";
 import { useData } from "./useData";
 import { useEntityMutations } from "./useEntityMutations";
 
@@ -55,3 +56,6 @@ export const useCorrespondenciaEntrante= (id) => {
 //create(), update(), delete()
 export const useCorrespondenciaEntranteMutations = () => useEntityMutations(correspondenciaEntranteAPI, "correspondenciaEntrante");
 
+
+//para el registro
+export const useRegisterMutations = () => useEntityMutations(RegistroApi, "Registro");
