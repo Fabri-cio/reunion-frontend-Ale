@@ -7,7 +7,7 @@ export const menus = [
     icon: FaFile,
     items: [
       { label: "Correspondencia", path: "/correspondenciaList" },
-      { label: "Entrantes", path: "/recibidosList" },
+      { label: "Entrantes", path: "/entrantesList" },
       {
         label: "Enviados",
         path: "/enviadosList",

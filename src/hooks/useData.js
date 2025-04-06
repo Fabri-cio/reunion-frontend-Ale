@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 // Hook genérico para obtener datos
-export const useData = (api, queryKey, id, params = {}, staleTime) => {
+const useData = (api, queryKey, id, params = {}, staleTime) => {
   const { all_data, page } = params;
   return useQuery({
     queryKey: id ? [queryKey, id] : [queryKey, all_data, page],
@@ -11,7 +11,4 @@ export const useData = (api, queryKey, id, params = {}, staleTime) => {
   });
 };
 
-
-// echo en bolivia
-
-
+export default useData;

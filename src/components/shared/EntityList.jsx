@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Table from "../../components/shared/Table";
-import Loading from "../../components/shared/Loading";
-import ErrorMessage from "../../components/shared/ErrorMessage";
-import Pagination from "../../components/shared/Pagination";
+import Table from "./Table";
+import Loading from "./Loading";
+import ErrorMessage from "./ErrorMessage";
+import Pagination from "./Pagination";
 import usePagination from "../../hooks/usePagination";
-import { Navigation } from "../../components/shared/Navigation";
+import { Navigation } from "./Navigation";
 
 function EntityList({ entityData }) {
   const {
@@ -36,7 +36,7 @@ function EntityList({ entityData }) {
     results = [],
   } = response.data || {};
 
-  const items = results || response.data?.data || [];
+  const items = response.data?.data || results || [];
   const totalItems = count;
 
   const hasPagination = next || previous;

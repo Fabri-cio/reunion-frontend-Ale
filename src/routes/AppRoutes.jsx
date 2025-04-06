@@ -22,6 +22,7 @@ const Home = lazy(() => import("../pages/Home"));
 
 //correspondencia
 const CorrespondenciaList = lazy(() => import("../pages/CorrespondenciaList"));
+const EntrantesList = lazy(() => import("../pages/EntrantesList"));
 
 const AppRoutes = () => {
   return (
@@ -42,6 +43,7 @@ const AppRoutes = () => {
             <Route element={<Dashboard />}>
               <Route path="/home" element={<Home />} />
               <Route path="/correspondenciaList" element={<CorrespondenciaList />} />
+              <Route path="/entrantesList" element={<EntrantesList />} />
             </Route>
           </Route>
           

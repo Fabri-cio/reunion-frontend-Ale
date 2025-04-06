@@ -1,14 +1,20 @@
 import ActionButton from "../components/shared/ActionButton";
 import EntityList from "../components/shared/EntityList";
 import { FaPlus, FaBox } from "react-icons/fa";
-import { useCorrespondencias } from "../hooks/useEntities";
+import { useCorrespondenciaEntrantes } from "../hooks/useEntities";
 
 function CorrespondenciaList() {
-  const productFields = (handleDetallesClick) => [
+  const entrantesFields = (handleDetallesClick) => [
     { key: "index", label: "N°" },
+    { key: "nro_registro", label: "N° Registro" },
+    { key: "fecha_recepcion", label: "Fecha de Recepción" },
+    { key: "fecha_respuesta", label: "Fecha de Respuesta" },
     { key: "referencia", label: "Referencia" },
-    { key: "descripcion", label: "Descripción" },
-    { key: "nombre_remitente", label: "Remitente" },
+    {
+      key: "remitente_institucion",
+      label: "Remitente/Institución",
+      render: (item) => `${item.nombre_remitente} - ${item.nombre_institucion}`,
+    },
     {
       key: "acciones",
       label: "Acciones",
@@ -25,19 +31,19 @@ function CorrespondenciaList() {
   ];
 
   const entityData = {
-    title: "Gestión de Correspondencia",
-    subTitle: "Listado de correspondencia",
-    loadingMessage: "Cargando correspondencia...",
-    errorMessage: "Error al obtener los productos",
-    fetchDataHook: useCorrespondencias,
-    editPath: "/editProduct",
-    all_data: true,
-    itemKey: "id_correspondencia",
-    entityFields: productFields,
+    title: "Gestión de Entrantes",
+    subTitle: "Listado de entrantes",
+    loadingMessage: "Cargando correspondencia entrante...",
+    errorMessage: "Error al obtener la correspondencia entrante",
+    fetchDataHook: useCorrespondenciaEntrantes,
+    editPath: "/editEntrante",
+    all_data: false,
+    itemKey: "id_correspondencia_entrante",
+    entityFields: entrantesFields,
     actions: [
       {
-        to: "/createProduct",
-        label: "Nuevo producto",
+        to: "/createEntrante",
+        label: "Nuevo Registro",
         icon: FaPlus,
         estilos:
           "hover:bg-gray-600 hover:text-white py-2 px-1 text-black border-2 rounded-md border-gray-400 flex items-center gap-2 transition duration-200",
